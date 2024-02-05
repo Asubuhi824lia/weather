@@ -1,0 +1,54 @@
+@import '/src/styles/variables.scss';
+@import '/src/styles/variables.module.scss';
+
+
+.wrapper {
+  width: 400px;
+  height: 300px;
+  padding: 20px;
+  background: $lite-background;
+  border-radius: $border-radius;
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.top_block {
+  display: flex;
+  justify-content: space-between;
+
+  .top_block__left_wrapper {
+    .temp {
+      font-size: 96px;
+      color: #4793FF;
+    }
+    .day_name {
+      font-size: 40px;
+      font-weight: bold;
+    }
+  }
+
+  .precipitation_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 119px;
+      height: 119px;
+    }
+  }
+}
+
+.bottom_block {
+  color: $base-color;
+  font-size: 25px;
+  font-weight: 400;
+  display: grid;
+  row-gap: 15px;
+  grid-template-rows: repeat(2, auto);
+}

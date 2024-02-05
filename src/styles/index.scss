@@ -1,0 +1,21 @@
+@import '/src/styles/variables.scss';
+@import url('/node_modules/normalize.css/normalize');
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Neucha', cursive;
+  color: $lite-color;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card_shadow {
+  box-shadow: $box-shadow;
+}
