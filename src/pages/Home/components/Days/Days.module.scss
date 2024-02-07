@@ -1,0 +1,49 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/variables.module';
+
+
+.days_wrapper {
+  background-color: $lite-background;
+  margin-top: 50px;
+}
+.days_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.day_wrapper:hover {
+  box-shadow: 0px 3px 20px 0px #93909047;
+}
+
+.day_wrapper {
+  background: #4793FF33;
+  border-radius: $border-radius /2;
+  width: 150px;
+  min-height: 200px;
+  padding: 12px 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .icon_id {
+    width: 48px;
+    height: 48px;
+    margin: 5px -4px;
+  }
+  
+  .temp_night, .info {
+    color: $base-color;
+    font-size: 13px;
+  }
+  .day_info {
+    color: $base-color;
+    font-size: 14px;
+  }
+  
+  .day_name, .temp_day {
+    color: $lite-color;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}

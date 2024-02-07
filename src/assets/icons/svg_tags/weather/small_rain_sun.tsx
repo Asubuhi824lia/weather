@@ -17,17 +17,17 @@ export default (
       fill="url(#paint2_radial_2_530)" />
     <defs>
       <linearGradient id="paint0_linear_2_530" x1="40" y1="8" x2="28.7832" y2="19.0723" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#FFB301" />
-        <stop offset="1" stop-color="#FFC533" />
+        <stop stopColor="#FFB301" />
+        <stop offset="1" stopColor="#FFC533" />
       </linearGradient>
       <linearGradient id="paint1_linear_2_530" x1="22" y1="12" x2="22" y2="34" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#9FC7FF" />
-        <stop offset="1" stop-color="#9BC1F5" />
+        <stop stopColor="#9FC7FF" />
+        <stop offset="1" stopColor="#9BC1F5" />
       </linearGradient>
       <radialGradient id="paint2_radial_2_530" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
         gradientTransform="translate(15.0679 -22.6966) rotate(-90) scale(20.9574 6.69705)">
-        <stop stop-color="#486DA8" stop-opacity="0.4" />
-        <stop offset="1" stop-color="#486DA8" stop-opacity="0" />
+        <stop stopColor="#486DA8" stop-opacity="0.4" />
+        <stop offset="1" stopColor="#486DA8" stop-opacity="0" />
       </radialGradient>
     </defs>
   </svg>

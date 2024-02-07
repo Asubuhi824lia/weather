@@ -11,13 +11,13 @@ export default (
     fill="url(#paint1_radial_2_537)" />
   <defs>
     <linearGradient id="paint0_linear_2_537" x1="24" y1="6" x2="24" y2="28" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#9FC7FF" />
-      <stop offset="1" stop-color="#9BC1F5" />
+      <stop stopColor="#9FC7FF" />
+      <stop offset="1" stopColor="#9BC1F5" />
     </linearGradient>
     <radialGradient id="paint1_radial_2_537" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
       gradientTransform="translate(10.7539 -24.6966) rotate(-90) scale(20.9574 6.69705)">
-      <stop stop-color="#486DA8" stop-opacity="0.4" />
-      <stop offset="1" stop-color="#486DA8" stop-opacity="0" />
+      <stop stopColor="#486DA8" stop-opacity="0.4" />
+      <stop offset="1" stopColor="#486DA8" stop-opacity="0" />
     </radialGradient>
   </defs>
 </svg>

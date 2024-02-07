@@ -1,6 +1,6 @@
 const pressure = (
   <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0_2_124)">
+    <g clipPath="url(#clip0_2_124)">
       <path
         d="M10.1345 0.281303C9.81729 -0.0359516 9.34139 -0.115293 8.94479 0.201998C8.94479 0.201998 8.86549 0.201998 8.86549 0.281303C8.23094 1.07446 2.3615 8.21295 2.3615 11.8615C2.3615 15.8274 5.53416 19 9.5 19C13.4658 19 16.6385 15.8274 16.6385 11.8615C16.6385 8.21295 10.7691 1.07446 10.1345 0.281303Z"
         fill="url(#paint0_linear_2_124)" />
@@ -15,8 +15,8 @@ const pressure = (
     <defs>
       <linearGradient id="paint0_linear_2_124" x1="3.90805" y1="16.383" x2="15.0729" y2="5.22218"
         gradientUnits="userSpaceOnUse">
-        <stop stop-color="#34CDFA" />
-        <stop offset="1" stop-color="#E8D9F1" />
+        <stop stopColor="#34CDFA" />
+        <stop offset="1" stopColor="#E8D9F1" />
       </linearGradient>
       <clipPath id="clip0_2_124">
         <rect width="19" height="19" fill="white" />

@@ -16,7 +16,7 @@ function WeatherSvgSelector({ id }: Props ) {
 		case "rain":return rain;
 		case "small_rain": 		return smallRain;
 		case "small_rain_sun":return smallRainSun;
-		case "mainly-cloudy": return mainlyCloudy;
+		case "mainly_cloudy": return mainlyCloudy;
     default:
       return null;
   }

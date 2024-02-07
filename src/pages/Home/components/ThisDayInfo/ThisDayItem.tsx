@@ -1,6 +1,6 @@
-import IndicatorSvgSelector from '../../../../../assets/icons/svg_tags/indicators/IndicatorSvgSelector';
-import { Item } from '../ThisDayInfo';
-import s from './ThisDayItem.module.scss'
+import IndicatorSvgSelector from '../../../../assets/icons/svg_tags/indicators/IndicatorSvgSelector';
+import { Item } from './ThisDayInfo';
+import s from './ThisDayInfo.module.scss'
 
 
 interface Props {

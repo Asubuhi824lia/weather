@@ -1,5 +1,5 @@
+import ThisDayItem from './ThisDayItem';
 import s from './ThisDayInfo.module.scss';
-import ThisDayItem from './ThisDayItem/ThisDayItem';
 
 
 export interface Item {
@@ -36,7 +36,7 @@ function ThisDayInfo() {
   return (
     <section className={`${s.wrapper} card_shadow`}>
       <div className={s.content}>
-        {items.map((item: Item) => (<ThisDayItem item={item} />))}
+        {items.map((item: Item) => (<ThisDayItem key={item.icon_id} item={item} />))}
       </div>
     </section>
   );

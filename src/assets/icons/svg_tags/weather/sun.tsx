@@ -9,8 +9,8 @@ export default (
   <defs>
     <linearGradient id="paint0_linear_2_547" x1="24.0092" y1="12.5099" x2="24.0092" y2="35.1951"
       gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFC227" />
-      <stop offset="1" stop-color="#FFB300" />
+      <stop stopColor="#FFC227" />
+      <stop offset="1" stopColor="#FFB300" />
     </linearGradient>
   </defs>
 </svg>
