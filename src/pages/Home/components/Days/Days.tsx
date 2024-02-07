@@ -21,7 +21,10 @@ function Days() {
 
   return (
     <section className={s.days_wrapper}>
-      <Tabs/>
+      <div className={s.tabs}>
+        <Tabs/>
+        <div className={s.cancel}>Отменить</div>
+      </div>
       <div className={`${s.days_content} card_shadow`}>
         {days.map((day: Day) => (<Card key={day.day_name} day={day} />))}
       </div>

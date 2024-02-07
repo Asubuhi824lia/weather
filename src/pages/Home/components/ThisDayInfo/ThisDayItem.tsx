@@ -12,7 +12,7 @@ function ThisDayItem({ item }: Props) {
   const { icon_id, name, value } = item;
   return ( 
     <div className={s.item}>
-      <span className={s.indicator}>
+      <span className={`${s.indicator} box-shadow`}>
         <IndicatorSvgSelector id={icon_id}/>
       </span>
       <span className={s.indicator_name}>  {name}  </span>

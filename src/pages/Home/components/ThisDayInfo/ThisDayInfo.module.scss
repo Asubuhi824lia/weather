@@ -24,12 +24,11 @@
   grid-template-columns: 38px 100px auto;
   align-items: center;
   column-gap: 20px;
-  font-size: 14px;
+  font-size: 16px;
 
   .indicator {
     padding: 9px;
     border-radius: 50%;
-    box-shadow: $box-shadow;
   }
   .indicator_name {
     color: $base-color;

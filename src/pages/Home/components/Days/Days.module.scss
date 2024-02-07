@@ -9,8 +9,53 @@
 .days_content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 7px;
 }
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+
+  .cancel {
+    font-size: 18px;
+    color: $lite-color;
+    background-color: $lite-background;
+    width: fit-content;
+    padding: 8px 20px;
+    border-radius: $border-radius /4;
+  }
+}
+
+.tabs_wrapper {
+  display: grid;
+  column-gap: 15px;
+  grid-template-columns: repeat(3, max-content);
+  
+  .tab {
+    font-size: 18px;
+    color: $lite-color;
+    background-color: $lite-background;
+    width: fit-content;
+    padding: 8px 20px;
+    border-radius: $border-radius /4;
+
+    &.active {
+      background-color: $primary-background;
+      color: #fff;
+    }
+  }
+}
+
+.tab, .cancel {
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+}
+
 
 .day_wrapper:hover {
   box-shadow: 0px 3px 20px 0px #93909047;
@@ -45,5 +90,10 @@
     color: $lite-color;
     font-size: 18px;
     font-weight: bold;
+  }
+
+  .temp {
+    display: flex;
+    flex-direction: column;
   }
 }

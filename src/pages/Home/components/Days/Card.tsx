@@ -10,12 +10,15 @@ interface Props {
 
 function Card({ day }: Props) {
   return (
-    <section className={s.day_wrapper}>
-      {Object.keys(day).map((key) => (
-        (key != "icon_id") 
-        ? <span key={key} className={s[key]}>{(day as Day)[key]}</span>
-        : <span key={key} className={s.icon_id}><WeatherSvgSelector id={day[key]}/></span>
-      ))}
+    <section className={`${s.day_wrapper} card_shadow`}>
+      <span className={s.day_name}>{day.day_name}</span>
+      <span className={s.day_info}>{day.day_info}</span>
+      <span className={s.icon_id}><WeatherSvgSelector id={day.icon_id}/></span>
+      <div className={s.temp}>
+        <span className={s.temp_day}>{day.temp_day}</span>
+        <span className={s.temp_night}>{day.temp_night}</span>
+      </div>
+      <span className={s.info}>{day.info}</span>
     </section>
   );
 }
