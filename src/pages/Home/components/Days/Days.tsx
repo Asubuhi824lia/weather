@@ -21,7 +21,7 @@ function Days() {
 
   return (
     <section className={s.days_wrapper}>
-      <div className={s.tabs}>
+      <div className={s.tabs_wrapper}>
         <Tabs/>
         <div className={s.cancel}>Отменить</div>
       </div>

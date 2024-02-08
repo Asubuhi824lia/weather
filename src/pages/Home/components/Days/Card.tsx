@@ -9,16 +9,18 @@ interface Props {
 
 
 function Card({ day }: Props) {
+  const {day_name, day_info, icon_id, temp_day, temp_night, info} = day;
+
   return (
     <section className={`${s.day_wrapper} card_shadow`}>
-      <span className={s.day_name}>{day.day_name}</span>
-      <span className={s.day_info}>{day.day_info}</span>
-      <span className={s.icon_id}><WeatherSvgSelector id={day.icon_id}/></span>
+      <span className={s.day_name}>{day_name}</span>
+      <span className={s.day_info}>{day_info}</span>
+      <span className={s.icon_id}> <WeatherSvgSelector id={icon_id}/></span>
       <div className={s.temp}>
-        <span className={s.temp_day}>{day.temp_day}</span>
-        <span className={s.temp_night}>{day.temp_night}</span>
+        <span className={s.temp_day}>   {temp_day}  </span>
+        <span className={s.temp_night}> {temp_night}</span>
       </div>
-      <span className={s.info}>{day.info}</span>
+      <span className={s.info}>{info}</span>
     </section>
   );
 }

@@ -1,5 +1,5 @@
 import variables from '/src/styles/variables.module.scss';
-import GlobalSvgSelector from '../../assets/icons/svg_tags/header/GlobalSvgSelector';
+import GlobalSvgSelector from '../../assets/icons/svg_tags/global/GlobalSvgSelector';
 import s from './Header.module.scss'
 import Select from 'react-select'
 

@@ -14,42 +14,30 @@
   margin-top: 7px;
 }
 
-.tabs {
+.tabs_wrapper {
   display: flex;
   justify-content: space-between;
-
-  .cancel {
-    font-size: 18px;
-    color: $lite-color;
-    background-color: $lite-background;
-    width: fit-content;
-    padding: 8px 20px;
-    border-radius: $border-radius /4;
-  }
 }
 
-.tabs_wrapper {
+.tabs {
   display: grid;
   column-gap: 15px;
   grid-template-columns: repeat(3, max-content);
-  
-  .tab {
-    font-size: 18px;
-    color: $lite-color;
-    background-color: $lite-background;
-    width: fit-content;
-    padding: 8px 20px;
-    border-radius: $border-radius /4;
-
-    &.active {
-      background-color: $primary-background;
-      color: #fff;
-    }
-  }
 }
 
 .tab, .cancel {
+  font-size: 18px;
+  color: $lite-color;
+  background-color: $lite-background;
+  width: fit-content;
+  padding: 8px 20px;
+  border-radius: $border-radius /4;
   cursor: pointer;
+
+  &.active {
+    background-color: $primary-background;
+    color: #fff;
+  }
 
   &:hover {
     box-shadow: $box-shadow;

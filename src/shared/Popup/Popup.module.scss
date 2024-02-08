@@ -1,0 +1,77 @@
+@import '/src/styles/variables.scss';
+@import '/src/styles/variables.module.scss';
+
+
+.blur_bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: $lite-blur-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  position: relative;
+  min-width: 760px;
+  min-height: 300px;
+  border-radius: $border-radius;
+  background-color: $lite-background;
+  padding: 42px;
+  display: flex;
+  justify-content: space-between;
+
+  .close {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: .5s;
+
+    &:hover {transform: rotate(380deg)}
+  }
+}
+
+
+.day_content {
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  row-gap: 12px;
+  align-self: baseline;
+}
+
+.items_content {
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  row-gap: 20px;
+}
+
+.temp {
+  font-size: 50px;
+  color: $primary-background;
+}
+.day_name {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.precipitation_icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  svg {
+    width: 53px;
+    height: 53px;
+  }
+}
+
+.bottom_block {
+  color: $base-color;
+  font-size: 15px;
+  font-weight: 400;
+}

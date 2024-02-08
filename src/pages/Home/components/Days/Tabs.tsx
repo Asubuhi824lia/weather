@@ -15,7 +15,7 @@ function Tabs() {
   ]
 
   return (
-    <section className={s.tabs_wrapper}>
+    <section className={s.tabs}>
       {tabs.map((tab, id) => (
         <div key={id} className={`${s.tab} ${id===0 ? s.active:''}`}>{tab.value}</div>
       ))}
