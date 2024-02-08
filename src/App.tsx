@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="container">
       <Header/>
-      <Popup/>
+      {/* <Popup/> */}
       <Routes>
         <Route path="/" Component={Home} /> 
       </Routes>      

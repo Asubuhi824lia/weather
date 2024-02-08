@@ -3,7 +3,6 @@
 
 
 .days_wrapper {
-  background-color: $lite-background;
   margin-top: 50px;
 }
 .days_content {
@@ -12,6 +11,9 @@
   justify-content: space-between;
   padding: 20px;
   margin-top: 7px;
+  background-color: var(--components-background-default);
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
 }
 
 .tabs_wrapper {
@@ -27,8 +29,8 @@
 
 .tab, .cancel {
   font-size: 18px;
-  color: $lite-color;
-  background-color: $lite-background;
+  color: var(--text-color-default);
+  background-color: var(--components-background-default);
   width: fit-content;
   padding: 8px 20px;
   border-radius: $border-radius /4;
@@ -46,18 +48,19 @@
 
 
 .day_wrapper:hover {
-  box-shadow: 0px 3px 20px 0px #93909047;
+  box-shadow: var(--card-shadow-default);
+  cursor: pointer;
 }
 
 .day_wrapper {
-  background: #4793FF33;
+  background: var(--card-background-default);
   border-radius: $border-radius /2;
   width: 150px;
   min-height: 200px;
   padding: 12px 11px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  row-gap: 7px;
+  grid-template-rows: repeat(5, auto);
 
   .icon_id {
     width: 48px;
@@ -75,7 +78,7 @@
   }
   
   .day_name, .temp_day {
-    color: $lite-color;
+    color: var(--text-color-default);
     font-size: 18px;
     font-weight: bold;
   }

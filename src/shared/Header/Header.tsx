@@ -1,7 +1,7 @@
+import Select from 'react-select'
+import s from './Header.module.scss'
 import variables from '/src/styles/variables.module.scss';
 import GlobalSvgSelector from '../../assets/icons/svg_tags/global/GlobalSvgSelector';
-import s from './Header.module.scss'
-import Select from 'react-select'
 
 
 const options = [
@@ -16,10 +16,16 @@ const selectStyles = {
 		...baseStyles,
 		border: 'none',
 		borderRadius: `calc(${variables["border-radius"]} / 2)`,	
-		backgroundColor: '#4793FF33',
+		backgroundColor: 0 ? '#4793FF33' : '#4F4F4F',
+		color: 'black',
 		width: '194px',
 		fontSize: '14px',
 		lineHeight: '20px',
+		cursor: 'pointer',
+	}),
+	singleValue: (baseStyles: any) => ({
+		...baseStyles,
+		color: 0 ? 'black' : 'white',
 	})
 }
 
