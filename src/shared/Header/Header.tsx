@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Select from 'react-select'
 import s from './Header.module.scss'
 import variables from '/src/styles/variables.module.scss';
@@ -11,26 +12,56 @@ const options = [
   { value: 'Екатеринбург', label: 'Екатеринбург' }
 ]
 
-const selectStyles = {
-	control: (baseStyles: any) => ({
-		...baseStyles,
-		border: 'none',
-		borderRadius: `calc(${variables["border-radius"]} / 2)`,	
-		backgroundColor: 0 ? '#4793FF33' : '#4F4F4F',
-		color: 'black',
-		width: '194px',
-		fontSize: '14px',
-		lineHeight: '20px',
-		cursor: 'pointer',
-	}),
-	singleValue: (baseStyles: any) => ({
-		...baseStyles,
-		color: 0 ? 'black' : 'white',
-	})
+enum Theme {
+	DARK 	= 'dark',
+	LIGHT = 'light',
 }
+const components = [
+	"--body-background",
+	"--components-background",
+	"--card-background",
+	"--card-shadow",
+	"--text-color",
+]
 
 
 function Header() {
+	const [theme, useTheme] = useState(Theme.LIGHT)
+
+	const selectStyles = {
+		control: (baseStyles: any) => ({
+			...baseStyles,
+			border: 'none',
+			borderRadius: `calc(${variables["border-radius"]} / 2)`,	
+			backgroundColor: (theme === Theme.LIGHT) ? '#4793FF33' : '#4F4F4F',
+			color: 'black',
+			width: '194px',
+			fontSize: '14px',
+			lineHeight: '20px',
+			cursor: 'pointer',
+		}),
+		singleValue: (baseStyles: any) => ({
+			...baseStyles,
+			color: (theme === Theme.LIGHT) ? 'black' : 'white',
+		}),
+		menu: (baseStyles: any) => ({
+			...baseStyles,
+			backgroundColor: (theme === Theme.LIGHT) ? '#4793FF33' : '#4F4F4F',
+		}),
+	}
+	
+	function changeTheme() {
+		useTheme(theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT)
+	}
+
+	useEffect(() => {
+		const root = document.querySelector(':root') as HTMLElement
+
+		components.forEach(prefix => {
+			root.style.setProperty(`${prefix}-default`, `var(${prefix}-${theme})`)
+		})
+	}, [theme])
+
 	return (
 		<header className={s.header}>
 			<div className={s.wrapper}>
@@ -40,7 +71,7 @@ function Header() {
 				<div className={s.title}>React weather</div>
 			</div>
 			<div className={s.wrapper}>
-				<div className={s.change_theme}>
+				<div className={s.change_theme} onClick={changeTheme}>
 					<GlobalSvgSelector id="change-theme"/>
 				</div>
 				<Select

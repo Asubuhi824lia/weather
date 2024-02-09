@@ -31,21 +31,21 @@ $text-color-light: #000;
 :root {
   --body-background-dark: #{$body-background-dark};
   --body-background-light: #{$body-background-light};
-  --body-background-default: var(--body-background-dark);
+  --body-background-default: var(--body-background-light);
   
   --components-background-dark: #{$components-background-dark};
   --components-background-light: #{$components-background-light};
-  --components-background-default: var(--components-background-dark);
+  --components-background-default: var(--components-background-light);
   
   --card-background-dark: #{$card-background-dark};
   --card-background-light: #{$card-background-light};
-  --card-background-default: var(--card-background-dark);
+  --card-background-default: var(--card-background-light);
 
   --card-shadow-dark: #($card-shadow-dark);
   --card-shadow-light: #($card-shadow-light);
-  --card-shadow-default: #($card-shadow-dark);
+  --card-shadow-default: #($card-shadow-light);
 
   --text-color-dark: #{$text-color-dark};
   --text-color-light: #{$text-color-light};
-  --text-color-default: var(--text-color-dark);
+  --text-color-default: var(--text-color-light);
 }
