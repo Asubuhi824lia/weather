@@ -47,11 +47,6 @@
 }
 
 
-.day_wrapper:hover {
-  box-shadow: var(--card-shadow-default);
-  cursor: pointer;
-}
-
 .day_wrapper {
   background: var(--card-background-default);
   border-radius: $border-radius /2;
@@ -61,6 +56,11 @@
   display: grid;
   row-gap: 7px;
   grid-template-rows: repeat(5, auto);
+
+  &:hover {
+    box-shadow: var(--card-shadow-default);
+    cursor: pointer;
+  }
 
   .icon_id {
     width: 48px;

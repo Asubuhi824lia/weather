@@ -41,9 +41,9 @@ $text-color-light: #000;
   --card-background-light: #{$card-background-light};
   --card-background-default: var(--card-background-light);
 
-  --card-shadow-dark: #($card-shadow-dark);
-  --card-shadow-light: #($card-shadow-light);
-  --card-shadow-default: #($card-shadow-light);
+  --card-shadow-dark: #{$card-shadow-dark};
+  --card-shadow-light: #{$card-shadow-light};
+  --card-shadow-default: var(--card-shadow-light);
 
   --text-color-dark: #{$text-color-dark};
   --text-color-light: #{$text-color-light};

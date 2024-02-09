@@ -12,7 +12,7 @@ function Card({ day }: Props) {
   const {day_name, day_info, icon_id, temp_day, temp_night, info} = day;
 
   return (
-    <section className={`${s.day_wrapper} card_shadow`}>
+    <section className={s.day_wrapper}>
       <span className={s.day_name}>{day_name}</span>
       <span className={s.day_info}>{day_info}</span>
       <span className={s.icon_id}> <WeatherSvgSelector id={icon_id}/></span>

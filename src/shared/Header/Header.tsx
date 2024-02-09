@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Select from 'react-select'
 import s from './Header.module.scss'
 import variables from '/src/styles/variables.module.scss';
 import GlobalSvgSelector from '../../assets/icons/svg_tags/global/GlobalSvgSelector';
+import useTheme from '../../hook/useTheme';
+import { Theme } from '../../context/provider/ThemeProvider';
 
 
 const options = [
@@ -12,10 +14,6 @@ const options = [
   { value: 'Екатеринбург', label: 'Екатеринбург' }
 ]
 
-enum Theme {
-	DARK 	= 'dark',
-	LIGHT = 'light',
-}
 const components = [
 	"--body-background",
 	"--components-background",
@@ -26,14 +24,14 @@ const components = [
 
 
 function Header() {
-	const [theme, useTheme] = useState(Theme.LIGHT)
+	const theme = useTheme()
 
 	const selectStyles = {
 		control: (baseStyles: any) => ({
 			...baseStyles,
 			border: 'none',
 			borderRadius: `calc(${variables["border-radius"]} / 2)`,	
-			backgroundColor: (theme === Theme.LIGHT) ? '#4793FF33' : '#4F4F4F',
+			backgroundColor: (theme?.theme === Theme.LIGHT) ? '#4793FF33' : '#4F4F4F',
 			color: 'black',
 			width: '194px',
 			fontSize: '14px',
@@ -42,25 +40,25 @@ function Header() {
 		}),
 		singleValue: (baseStyles: any) => ({
 			...baseStyles,
-			color: (theme === Theme.LIGHT) ? 'black' : 'white',
+			color: (theme?.theme === Theme.LIGHT) ? 'black' : 'white',
 		}),
 		menu: (baseStyles: any) => ({
 			...baseStyles,
-			backgroundColor: (theme === Theme.LIGHT) ? '#4793FF33' : '#4F4F4F',
+			backgroundColor: (theme?.theme === Theme.LIGHT) ? '#4793FF33' : '#4F4F4F',
 		}),
 	}
 	
 	function changeTheme() {
-		useTheme(theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT)
+		theme?.setTheme(theme?.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT)
 	}
 
 	useEffect(() => {
 		const root = document.querySelector(':root') as HTMLElement
 
 		components.forEach(prefix => {
-			root.style.setProperty(`${prefix}-default`, `var(${prefix}-${theme})`)
+			root.style.setProperty(`${prefix}-default`, `var(${prefix}-${theme?.theme})`)
 		})
-	}, [theme])
+	}, [theme?.theme])
 
 	return (
 		<header className={s.header}>
