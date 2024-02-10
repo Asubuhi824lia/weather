@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import { ReactNode } from "react"
-import { ThemeContext } from "../context/ThemeContext"
+import { Theme, ThemeContext } from "../context/ThemeContext"
+import ChangeCssRootVariables from '../../model/ChangeCssRootVariables';
 
-
-export enum Theme {
-	DARK 	= 'dark',
-	LIGHT = 'light',
-}
 
 interface Props {
   children: ReactNode,
@@ -16,8 +12,16 @@ interface Props {
 export const ThemeProvider = ({children, ...props}: Props) => {
   const [theme, setTheme] = useState<string>(Theme.LIGHT)
 
-  return <ThemeContext.Provider 
-    value={{theme, setTheme}}
+  function changeTheme(theme: string) {
+    setTheme(theme)
+    ChangeCssRootVariables(theme)
+  }
+
+  return <ThemeContext.Provider
+    value={{
+      theme, 
+      setTheme: changeTheme,
+    }}
     {...props}
   >
     {children}

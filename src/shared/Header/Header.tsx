@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
-import Select from 'react-select'
-import s from './Header.module.scss'
+import Select from 'react-select';
+import s from './Header.module.scss';
 import variables from '/src/styles/variables.module.scss';
 import GlobalSvgSelector from '../../assets/icons/svg_tags/global/GlobalSvgSelector';
 import useTheme from '../../hook/useTheme';
-import { Theme } from '../../context/provider/ThemeProvider';
+import { Theme } from '../../context/context/ThemeContext';
+import ChangeCssRootVariables from '../../model/ChangeCssRootVariables';
 
 
 const options = [
@@ -12,14 +12,6 @@ const options = [
   { value: 'Санкт-Петербург', label: 'Санкт-Петербург' },
   { value: 'Москва', label: 'Москва' },
   { value: 'Екатеринбург', label: 'Екатеринбург' }
-]
-
-const components = [
-	"--body-background",
-	"--components-background",
-	"--card-background",
-	"--card-shadow",
-	"--text-color",
 ]
 
 
@@ -31,7 +23,7 @@ function Header() {
 			...baseStyles,
 			border: 'none',
 			borderRadius: `calc(${variables["border-radius"]} / 2)`,	
-			backgroundColor: (theme?.theme === Theme.LIGHT) ? '#4793FF33' : '#4F4F4F',
+			backgroundColor: (theme.theme === Theme.LIGHT) ? '#4793FF33' : '#4F4F4F',
 			color: 'black',
 			width: '194px',
 			fontSize: '14px',
@@ -40,25 +32,18 @@ function Header() {
 		}),
 		singleValue: (baseStyles: any) => ({
 			...baseStyles,
-			color: (theme?.theme === Theme.LIGHT) ? 'black' : 'white',
+			color: (theme.theme === Theme.LIGHT) ? 'black' : 'white',
 		}),
 		menu: (baseStyles: any) => ({
 			...baseStyles,
-			backgroundColor: (theme?.theme === Theme.LIGHT) ? '#4793FF33' : '#4F4F4F',
+			backgroundColor: (theme.theme === Theme.LIGHT) ? '#4793FF33' : '#4F4F4F',
 		}),
 	}
-	
+
+	ChangeCssRootVariables(theme.theme)
 	function changeTheme() {
-		theme?.setTheme(theme?.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT)
-	}
-
-	useEffect(() => {
-		const root = document.querySelector(':root') as HTMLElement
-
-		components.forEach(prefix => {
-			root.style.setProperty(`${prefix}-default`, `var(${prefix}-${theme?.theme})`)
-		})
-	}, [theme?.theme])
+    theme.setTheme(theme.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
+  }
 
 	return (
 		<header className={s.header}>
