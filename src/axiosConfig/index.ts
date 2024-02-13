@@ -8,6 +8,10 @@ api.interceptors.request.use((req) => {
   return req;
 });
 api.interceptors.request.use((req) => {
+  req.url += "&lang=ru";
+  return req;
+});
+api.interceptors.request.use((req) => {
   req.url += "&appid=" + process.env.REACT_APP_API_WEATHER_KEY;
   return req;
 });

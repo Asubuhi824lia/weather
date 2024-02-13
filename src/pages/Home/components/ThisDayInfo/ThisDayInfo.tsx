@@ -1,5 +1,7 @@
 import ThisDayItem from "./ThisDayItem";
 import s from "./ThisDayInfo.module.scss";
+import { Weather } from "../../../../store/types/types";
+import useWeatherWindForce from "../../../../hook/useWeatherWindGust";
 
 export interface Item {
   icon_id: string;
@@ -7,27 +9,35 @@ export interface Item {
   value: string;
 }
 
-function ThisDayInfo() {
+export interface Props {
+  weather: Weather;
+}
+
+function ThisDayInfo({ weather }: Props) {
   const items = [
     {
       icon_id: "temp",
       name: "Температура",
-      value: "20° - ощущается как 17°",
+      value: `${weather.main.temp}° - ощущается как ${weather.main.feels_like}°`,
     },
     {
       icon_id: "pressure",
       name: "Давление",
-      value: "765 мм ртутного столба - нормальное",
+      value: `${weather.main.pressure} мм ртутного столба`,
     },
     {
       icon_id: "precipitation",
       name: "Осадки",
-      value: "Без осадков",
+      value: weather.weather[0].description,
     },
     {
       icon_id: "wind",
       name: "Ветер",
-      value: "3 м/с юго-запад - легкий ветер",
+      value: `
+      ${weather.wind.speed} м/с 
+      ${weather.wind.deg} - 
+      ${useWeatherWindForce(weather.wind.speed)}
+      - с порывами до ${weather.wind.gust} м/с`,
     },
   ];
 

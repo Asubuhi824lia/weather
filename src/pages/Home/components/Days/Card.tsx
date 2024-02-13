@@ -14,7 +14,6 @@ function Card({ day }: Props) {
       <span className={s.day_name}>{day_name}</span>
       <span className={s.day_info}>{day_info}</span>
       <span className={s.icon_id}>
-        {" "}
         <WeatherSvgSelector id={icon_id} />
       </span>
       <div className={s.temp}>

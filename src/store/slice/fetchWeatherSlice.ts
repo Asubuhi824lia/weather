@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Weather } from "../types/types";
 import { AxiosResponse } from "axios";
+import useWeatherWindDirection from "../../hook/useWeatherWindDirection";
 
 type WeatherResponse = {
   status: number;
@@ -17,16 +18,23 @@ const initialState: CurrentWeather = {
   weather: {
     main: {
       temp: 0,
+      feels_like: 0,
       temp_max: 0,
       temp_min: 0,
       pressure: 0,
       humidity: 0,
     },
+    wind: {
+      speed: 0,
+      deg: 0,
+      gust: 0,
+    },
     weather: [
       {
-        main: "",
+        description: "",
       },
     ],
+    dt: 0,
   },
   isLoading: false,
   response: {
@@ -64,6 +72,19 @@ export const CurrentWeatherSlice = createSlice({
         status: action.payload.status,
         message: action.payload.statusText,
       };
+    },
+    roundCurrentWeatherValues(state) {
+      state.weather.main.temp = Math.round(state.weather.main.temp);
+      state.weather.main.feels_like = Math.round(state.weather.main.feels_like);
+      state.weather.main.temp_max = Math.round(state.weather.main.temp_max);
+      state.weather.main.temp_min = Math.round(state.weather.main.temp_min);
+      state.weather.main.humidity = Math.round(state.weather.main.humidity);
+      state.weather.main.pressure = Math.round(
+        0.75 * state.weather.main.pressure
+      );
+      state.weather.wind.speed = Math.round(state.weather.wind.speed);
+      state.weather.wind.deg = useWeatherWindDirection(state.weather.wind.deg);
+      state.weather.wind.gust = Math.round(state.weather.wind.gust);
     },
   },
 });

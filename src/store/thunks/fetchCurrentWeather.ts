@@ -10,6 +10,7 @@ export const fetchCurrentWeather =
 
       if (res.status === 200) {
         dispatch(CurrentWeatherSlice.actions.fetchCurrentWeatherSuccess(res));
+        dispatch(CurrentWeatherSlice.actions.roundCurrentWeatherValues());
       } else {
         dispatch(CurrentWeatherSlice.actions.fetchCurrentWeatherError(res));
       }

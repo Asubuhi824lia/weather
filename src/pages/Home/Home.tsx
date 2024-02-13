@@ -20,7 +20,7 @@ function Home() {
     <main className={s.home}>
       <article className={s.today_info}>
         <ThisDay weather={weather} />
-        <ThisDayInfo />
+        <ThisDayInfo weather={weather} />
       </article>
       <Days />
     </main>
