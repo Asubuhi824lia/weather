@@ -51,4 +51,8 @@
   display: grid;
   row-gap: 15px;
   grid-template-rows: repeat(2, auto);
+
+  .caption {
+    font-family: 'Neucha', cursive;
+  }
 }

@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import WeatherSvgSelector from "../../../../assets/icons/svg_tags/weather/WeatherSvgSelector";
 import { Weather } from "../../../../store/types/types";
 import s from "./ThisDay.module.scss";
@@ -7,7 +8,7 @@ interface Props {
 }
 
 function ThisDay({ weather }: Props) {
-  const date = new Date(weather.dt);
+  let date = new Date(Date(weather.dt));
 
   return (
     <article className={`${s.wrapper} card_shadow`}>
@@ -25,13 +26,12 @@ function ThisDay({ weather }: Props) {
         </header>
         <footer className={s.bottom_block}>
           <div className={s.time}>
-            Время:{" "}
-            <span>
-              {date.getHours()}:{date.getMinutes()}
-            </span>
+            <span className={s.caption}>Время: </span>
+            <span> {format(date, "HH:mm")}</span>
           </div>
           <div className={s.city}>
-            Город: <span>Дивногорск</span>
+            <span className={s.caption}>Город: </span>
+            <span>Дивногорск</span>
           </div>
         </footer>
       </div>

@@ -13,10 +13,15 @@ const windDirParts = [
 ];
 
 const WindDirections = [
-  ["север", "северо-северо-восток", "северо-восток", "восточно-северо-восток"],
-  ["восток", "восточно-юго-восток", "юго-восток", "юго-юго-восток"],
-  ["юг", "юго-юго-запад", "юго-запад", "западо-юго-запад"],
-  ["запад", "западо-северо-запад", "северо-запад", "северо-северо-запад"],
+  [
+    "северный",
+    "северо-северо-восток",
+    "северо-восток",
+    "восточно-северо-восток",
+  ],
+  ["восточный", "восточно-юго-восток", "юго-восток", "юго-юго-восток"],
+  ["южный", "юго-юго-запад", "юго-запад", "западо-юго-запад"],
+  ["западны", "западо-северо-запад", "северо-запад", "северо-северо-запад"],
 ];
 
 export default function useWeatherWindDirection(deg: number | string) {
@@ -35,8 +40,7 @@ function defineWindDirectionInRange(degRemain: number, part: WindDirParts) {
   const seg = 22.5;
   // RANGE +- 11.25
   const range = 11.25;
-
-  if (degRemain % range < 1) return WindDirections[part][0];
+  if (degRemain < range) return WindDirections[part][0];
   for (let i = 1; i < WindDirections[part].length; i++) {
     if (degRemain > (i - 1) * seg + range && degRemain < i * seg + range)
       return WindDirections[part][i];
