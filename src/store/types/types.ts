@@ -1,4 +1,4 @@
-export type Weather = {
+export type CurrentWeather = {
   main: {
     temp: number;
     feels_like: number;
@@ -18,4 +18,8 @@ export type Weather = {
     }
   ];
   dt: number;
+};
+
+export type Hourly5DaysWeather = {
+  list: Array<CurrentWeather>;
 };

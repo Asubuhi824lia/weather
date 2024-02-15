@@ -1,6 +1,6 @@
 import ThisDayItem from "./ThisDayItem";
 import s from "./ThisDayInfo.module.scss";
-import { Weather } from "../../../../store/types/types";
+import { CurrentWeather } from "../../../../store/types/types";
 import useWeatherWindForce from "../../../../hook/useWeatherWindGust";
 
 export interface Item {
@@ -10,7 +10,7 @@ export interface Item {
 }
 
 export interface Props {
-  weather: Weather;
+  weather: CurrentWeather;
 }
 
 function ThisDayInfo({ weather }: Props) {

@@ -4,7 +4,8 @@ import s from "./Home.module.scss";
 import Days from "./components/Days/Days";
 import ThisDay from "./components/ThisDay/ThisDay";
 import ThisDayInfo from "./components/ThisDayInfo/ThisDayInfo";
-import { fetchCurrentWeather } from "../../store/thunks/fetchCurrentWeather";
+import fetchCurrentWeather from "../../store/thunks/fetchCurrentWeather";
+import fetchHourly5DaysWeather from "../../store/thunks/fetchDaily5Weather";
 import { selectCurrentWeatherData } from "../../store/selectors";
 
 function Home() {
@@ -13,7 +14,9 @@ function Home() {
   const { weather } = useCustomSelector(selectCurrentWeatherData);
 
   useEffect(() => {
-    dispatch(fetchCurrentWeather("Divnogorsk"));
+    const city = "Divnogorsk";
+    dispatch(fetchCurrentWeather(city));
+    dispatch(fetchHourly5DaysWeather(city));
   }, []);
 
   return (

@@ -1,10 +1,10 @@
 import { format } from "date-fns";
 import WeatherSvgSelector from "../../../../assets/icons/svg_tags/weather/WeatherSvgSelector";
-import { Weather } from "../../../../store/types/types";
+import { CurrentWeather } from "../../../../store/types/types";
 import s from "./ThisDay.module.scss";
 
 interface Props {
-  weather: Weather;
+  weather: CurrentWeather;
 }
 
 function ThisDay({ weather }: Props) {
