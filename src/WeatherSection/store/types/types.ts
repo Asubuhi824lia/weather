@@ -18,6 +18,7 @@ export type CurrentWeather = {
     }
   ];
   dt: number;
+  name: string;
 };
 
 export type Hourly5DaysWeather = {

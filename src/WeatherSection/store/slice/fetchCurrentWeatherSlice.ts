@@ -10,28 +10,31 @@ type DataWeather = {
   response: WeatherResponse;
 };
 
-export const initialState: DataWeather = {
-  weather: {
-    main: {
-      temp: 0,
-      feels_like: 0,
-      temp_max: 0,
-      temp_min: 0,
-      pressure: 0,
-      humidity: 0,
-    },
-    wind: {
-      speed: 0,
-      deg: 0,
-      gust: 0,
-    },
-    weather: [
-      {
-        description: "",
-      },
-    ],
-    dt: 0,
+export const initialWeather: CurrentWeather = {
+  main: {
+    temp: 0,
+    feels_like: 0,
+    temp_max: 0,
+    temp_min: 0,
+    pressure: 0,
+    humidity: 0,
   },
+  wind: {
+    speed: 0,
+    deg: 0,
+    gust: 0,
+  },
+  weather: [
+    {
+      description: "",
+    },
+  ],
+  dt: 0,
+  name: "",
+};
+
+export const initialState: DataWeather = {
+  weather: initialWeather,
   isLoading: false,
   response: {
     status: 0,

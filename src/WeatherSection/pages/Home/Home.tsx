@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { useCustomDispatch, useCustomSelector } from "../../hook/store";
 import s from "./Home.module.scss";
 import Days from "./components/Days/Days";
@@ -8,25 +8,36 @@ import fetchCurrentWeather from "../../store/thunks/fetchCurrentWeather";
 import fetchHourly5DaysWeather from "../../store/thunks/fetchDaily5Weather";
 import { selectCurrentWeatherData } from "../../store/selectors";
 
+import { Provider } from "react-redux";
+import { store } from "../../store/store.ts";
+import { ThemeProvider } from "../../context/provider/ThemeProvider.tsx";
+
 function Home() {
+  const city = "Krasnoyarsk";
   const dispatch = useCustomDispatch();
 
   const { weather } = useCustomSelector(selectCurrentWeatherData);
 
-  useEffect(() => {
-    const city = "Divnogorsk";
+  // useEffect(() => {
+  //   dispatch(fetchHourly5DaysWeather(city));
+  // }, []);
+
+  useLayoutEffect(() => {
     dispatch(fetchCurrentWeather(city));
-    dispatch(fetchHourly5DaysWeather(city));
   }, []);
 
   return (
-    <main className={s.home}>
-      <article className={s.today_info}>
-        <ThisDay weather={weather} />
-        <ThisDayInfo weather={weather} />
-      </article>
-      <Days />
-    </main>
+    <Provider store={store}>
+      <ThemeProvider>
+        <main className={s.home}>
+          <article className={s.today_info}>
+            <ThisDay weather={weather} />
+            <ThisDayInfo weather={weather} />
+          </article>
+          <Days />
+        </main>
+      </ThemeProvider>
+    </Provider>
   );
 }
 

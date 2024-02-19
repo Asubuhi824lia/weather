@@ -31,7 +31,7 @@ function ThisDay({ weather }: Props) {
           </div>
           <div className={s.city}>
             <span className={s.caption}>Город: </span>
-            <span>Дивногорск</span>
+            <span>{weather.name}</span>
           </div>
         </footer>
       </div>

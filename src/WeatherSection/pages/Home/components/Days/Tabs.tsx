@@ -1,5 +1,4 @@
-import s from './Days.module.scss';
-
+import s from "./Days.module.scss";
 
 function Tabs() {
   const tabs = [
@@ -12,12 +11,14 @@ function Tabs() {
     {
       value: "На месяц",
     },
-  ]
+  ];
 
   return (
     <section className={s.tabs}>
       {tabs.map((tab, id) => (
-        <div key={id} className={`${s.tab} ${id===0 ? s.active:''}`}>{tab.value}</div>
+        <div key={id} className={`${s.tab} ${id === 0 ? s.active : ""}`}>
+          {tab.value}
+        </div>
       ))}
     </section>
   );

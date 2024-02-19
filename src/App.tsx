@@ -1,15 +1,15 @@
-import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home/Home";
-import Header from "./shared/Header/Header";
-import Popup from "./shared/Popup/Popup";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Home from "./WeatherSection/pages/Home/Home";
+import Header from "./WeatherSection/shared/Header/Header";
 
 function App() {
   return (
     <div className="container">
       <Header />
-      {/* <Popup/> */}
       <Routes>
         <Route path="/" Component={Home} />
+        <Route path="/counter" Component={TodoApp} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );

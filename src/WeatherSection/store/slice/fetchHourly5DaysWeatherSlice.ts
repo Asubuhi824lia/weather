@@ -32,6 +32,7 @@ export const initialState: DataWeather = {
           },
         ],
         dt: 0,
+        name: "",
       },
     ],
   },
