@@ -6,6 +6,7 @@ import {
   increment,
   multiplyByNumber,
   multiplyAsync,
+  halfDivideIfEven,
 } from "../../store/counterSlice";
 import { selectCount } from "../../store/selectors";
 import { useCounterDispatch, useCounterSelector } from "../../hook/hooks";
@@ -52,6 +53,14 @@ function Counter() {
           onClick={() => dispatch(multiplyAsync(Number(multipleValue) || 0))}
         >
           Multiply Async
+        </button>
+      </div>
+      <div className={s.row}>
+        <button
+          className={s.button}
+          onClick={() => dispatch(halfDivideIfEven())}
+        >
+          Divide in Half if Even
         </button>
       </div>
     </div>

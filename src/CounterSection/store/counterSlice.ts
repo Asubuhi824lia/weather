@@ -57,3 +57,9 @@ export const multiplyAsync = createAsyncThunk(
     return response.data;
   }
 );
+
+export const halfDivideIfEven = (): AppThunk => (dispatch, getState) => {
+  const currentValue = selectCount(getState());
+  if (currentValue % 2 === 0 && currentValue !== 0)
+    dispatch(multiplyByNumber(0.5));
+};
