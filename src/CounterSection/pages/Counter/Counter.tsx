@@ -5,12 +5,13 @@ import {
   decrement,
   increment,
   multiplyByNumber,
+  multiplyAsync,
 } from "../../store/counterSlice";
 import { selectCount } from "../../store/selectors";
-import { useCounterDispatch } from "../../hook/hooks";
+import { useCounterDispatch, useCounterSelector } from "../../hook/hooks";
 
 function Counter() {
-  const count = selectCount();
+  const count = useCounterSelector(selectCount);
   const dispatch = useCounterDispatch();
   const [multipleValue, setMultipleValue] = useState("2");
 
@@ -45,6 +46,12 @@ function Counter() {
           onClick={() => dispatch(multiplyByNumber(Number(multipleValue) || 0))}
         >
           Multiply by Amount
+        </button>
+        <button
+          className={s.asyncButton}
+          onClick={() => dispatch(multiplyAsync(Number(multipleValue) || 0))}
+        >
+          Multiply Async
         </button>
       </div>
     </div>

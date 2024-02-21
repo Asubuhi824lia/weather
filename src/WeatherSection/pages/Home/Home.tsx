@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect } from "react";
-import { useCustomDispatch, useCustomSelector } from "../../hook/store";
+import { useWeatherDispatch, useWeatherSelector } from "../../hook/store";
 import s from "./Home.module.scss";
 import Days from "./components/Days/Days";
 import ThisDay from "./components/ThisDay/ThisDay";
@@ -14,9 +14,9 @@ import { ThemeProvider } from "../../context/provider/ThemeProvider.tsx";
 
 function Home() {
   const city = "Krasnoyarsk";
-  const dispatch = useCustomDispatch();
+  const dispatch = useWeatherDispatch();
 
-  const { weather } = useCustomSelector(selectCurrentWeatherData);
+  const { weather } = useWeatherSelector(selectCurrentWeatherData);
 
   // useEffect(() => {
   //   dispatch(fetchHourly5DaysWeather(city));
