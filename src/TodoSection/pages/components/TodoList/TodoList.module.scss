@@ -1,0 +1,30 @@
+ul {
+  list-style: none;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+
+  label {
+    display: flex;
+    gap: .5rem;
+  }
+}
+
+input:checked + span {
+  text-decoration: line-through;
+}
+
+.delete { color: red; }
+
+.complited, .delete {
+  cursor: pointer;
+}
+
+.inputField {
+  display: flex;
+  gap: .5rem;
+}
