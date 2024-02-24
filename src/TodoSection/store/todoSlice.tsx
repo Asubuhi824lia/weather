@@ -1,4 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fetchTodos } from "../API/fetchTodos";
+
+enum AsyncStatus {
+  PENDING = "loading",
+  FULLFILLED = "idle",
+  REJECTED = "failed",
+}
 
 export const todoSlice = createSlice({
   name: "todos",
@@ -6,22 +13,23 @@ export const todoSlice = createSlice({
     todos: [
       {
         id: 0,
-        text: "Открыть список дел TODO",
+        title: "Открыть список дел TODO",
         complited: true,
       },
       {
         id: 1,
-        text: "Устранить эффект белого листа",
+        title: "Устранить эффект белого листа",
         complited: true,
       },
     ],
+    status: AsyncStatus.FULLFILLED,
   },
   reducers: {
     addTodo: (state, action) => {
-      if (action.payload.text.trim().length) {
+      if (action.payload.title.trim().length) {
         state.todos.push({
           id: new Date().getTime(),
-          text: action.payload.text,
+          title: action.payload.title,
           complited: false,
         });
       }
@@ -35,6 +43,20 @@ export const todoSlice = createSlice({
       );
       if (toggleTodo) toggleTodo.complited = !toggleTodo.complited;
     },
+  },
+  extraReducers(builder) {
+    builder
+      .addCase(fetchTodos.pending, (state) => {
+        state.status = AsyncStatus.PENDING;
+      })
+      .addCase(fetchTodos.fulfilled, (state, action) => {
+        state.status = AsyncStatus.FULLFILLED;
+        state.todos = action.payload;
+        console.log(state.todos);
+      })
+      .addCase(fetchTodos.rejected, (state) => {
+        state.status = AsyncStatus.REJECTED;
+      });
   },
 });
 

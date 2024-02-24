@@ -1,10 +1,16 @@
+import { useEffect } from "react";
 import { todoAppDispatch, todoAppSelector } from "../../../hook/store";
 import TodoItem, { Todo } from "./TodoItem";
 import { delTodo, toggleTodoComplited } from "../../../store/todoSlice";
+import { fetchTodos } from "../../../API/fetchTodos";
 
 export default function TodoList() {
   const todos = todoAppSelector((state) => state.todos.todos);
   const dispatch = todoAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTodos());
+  });
 
   return (
     <ul>

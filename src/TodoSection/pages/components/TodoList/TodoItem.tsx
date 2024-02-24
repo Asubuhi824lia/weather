@@ -22,7 +22,7 @@ function TodoItem({ todo, delTodo, toggleCheck }: Props) {
           checked={todo.complited}
           onChange={toggleCheck}
         />
-        <span>{`${todo.text}`}</span>
+        <span>{`${todo.title}`}</span>
       </label>
       <span className={s.delete} onClick={delTodo}>
         &times;
