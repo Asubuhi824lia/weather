@@ -2,7 +2,7 @@ import s from "./TodoList.module.scss";
 
 export interface Todo {
   id: number;
-  text: string;
+  title: string;
   complited: boolean;
 }
 

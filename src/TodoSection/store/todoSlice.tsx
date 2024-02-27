@@ -1,11 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchTodos } from "../API/fetchTodos";
-
-enum AsyncStatus {
-  PENDING = "loading",
-  FULLFILLED = "idle",
-  REJECTED = "failed",
-}
+import { AsyncStatus, fetchTodos } from "../API/fetchTodos";
 
 export const todoSlice = createSlice({
   name: "todos",
@@ -23,6 +17,7 @@ export const todoSlice = createSlice({
       },
     ],
     status: AsyncStatus.FULLFILLED,
+    error: null,
   },
   reducers: {
     addTodo: (state, action) => {
@@ -48,18 +43,18 @@ export const todoSlice = createSlice({
     builder
       .addCase(fetchTodos.pending, (state) => {
         state.status = AsyncStatus.PENDING;
+        state.error = null;
       })
       .addCase(fetchTodos.fulfilled, (state, action) => {
         state.status = AsyncStatus.FULLFILLED;
+        state.error = null;
         state.todos = action.payload;
-        console.log(state.todos);
       })
-      .addCase(fetchTodos.rejected, (state) => {
+      .addCase(fetchTodos.rejected, (state, action) => {
         state.status = AsyncStatus.REJECTED;
+        state.error = action.payload;
       });
   },
 });
-
 export default todoSlice.reducer;
-
 export const { addTodo, delTodo, toggleTodoComplited } = todoSlice.actions;

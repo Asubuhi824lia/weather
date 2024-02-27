@@ -4,16 +4,16 @@ import TodoItem, { Todo } from "./TodoItem";
 import { delTodo, toggleTodoComplited } from "../../../store/todoSlice";
 import { fetchTodos } from "../../../API/fetchTodos";
 
-export default function TodoList() {
+export default function TodoList(props: any) {
   const todos = todoAppSelector((state) => state.todos.todos);
   const dispatch = todoAppDispatch();
 
   useEffect(() => {
     dispatch(fetchTodos());
-  });
+  }, [dispatch]);
 
   return (
-    <ul>
+    <ul {...props}>
       {todos.map((todo: Todo) => (
         <TodoItem
           key={todo.id}
