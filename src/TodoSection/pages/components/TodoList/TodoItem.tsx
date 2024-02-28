@@ -1,30 +1,34 @@
+import { deleteTodo } from "../../../API/deleteTodo";
+import { todoAppDispatch } from "../../../hook/store";
 import s from "./TodoList.module.scss";
 
 export interface Todo {
   id: number;
   title: string;
-  complited: boolean;
+  completed: boolean;
 }
 
 type Props = {
   todo: Todo;
-  delTodo: React.MouseEventHandler<HTMLButtonElement>;
-  toggleCheck: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-function TodoItem({ todo, delTodo, toggleCheck }: Props) {
+function TodoItem({ todo }: Props) {
+  const { id, title, completed } = todo;
+
+  const dispatch = todoAppDispatch();
+
   return (
     <li className={s.todo}>
       <label>
         <input
           type="checkbox"
-          className={s.complited}
-          checked={todo.complited}
-          onChange={toggleCheck}
+          className={s.completed}
+          checked={completed}
+          onChange={() => {}}
         />
-        <span>{`${todo.title}`}</span>
+        <span>{`${title}`}</span>
       </label>
-      <span className={s.delete} onClick={delTodo}>
+      <span className={s.delete} onClick={() => dispatch(deleteTodo({ id }))}>
         &times;
       </span>
     </li>

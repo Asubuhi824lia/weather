@@ -1,5 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AsyncStatus, fetchTodos } from "../API/fetchTodos";
+import { deleteTodo } from "../API/deleteTodo";
+import { Todo } from "../pages/components/TodoList/TodoItem";
 
 export const todoSlice = createSlice({
   name: "todos",
@@ -8,12 +10,12 @@ export const todoSlice = createSlice({
       {
         id: 0,
         title: "Открыть список дел TODO",
-        complited: true,
+        completed: true,
       },
       {
         id: 1,
         title: "Устранить эффект белого листа",
-        complited: true,
+        completed: true,
       },
     ],
     status: AsyncStatus.FULLFILLED,
@@ -25,18 +27,18 @@ export const todoSlice = createSlice({
         state.todos.push({
           id: new Date().getTime(),
           title: action.payload.title,
-          complited: false,
+          completed: false,
         });
       }
     },
     delTodo: (state, action) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload.id);
     },
-    toggleTodoComplited: (state, action) => {
+    toggleTodocompleted: (state, action) => {
       const toggleTodo = state.todos.find(
         (todo) => todo.id === action.payload.id
       );
-      if (toggleTodo) toggleTodo.complited = !toggleTodo.complited;
+      if (toggleTodo) toggleTodo.completed = !toggleTodo.completed;
     },
   },
   extraReducers(builder) {
@@ -50,11 +52,21 @@ export const todoSlice = createSlice({
         state.error = null;
         state.todos = action.payload;
       })
-      .addCase(fetchTodos.rejected, (state, action) => {
-        state.status = AsyncStatus.REJECTED;
-        state.error = action.payload;
-      });
+      .addCase(fetchTodos.rejected, setError);
+    builder.addCase(deleteTodo.rejected, setError);
   },
 });
+
+type TodoState = {
+  todos: Array<Todo>;
+  status: string;
+  error: any;
+};
+
+const setError = (state: TodoState, action: PayloadAction<any>) => {
+  state.status = AsyncStatus.REJECTED;
+  state.error = action.payload;
+};
+
 export default todoSlice.reducer;
-export const { addTodo, delTodo, toggleTodoComplited } = todoSlice.actions;
+export const { addTodo, delTodo, toggleTodocompleted } = todoSlice.actions;
