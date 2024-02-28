@@ -1,5 +1,5 @@
-import { deleteTodoDB } from "../../../API/deleteTodoDB";
-import { toggleCompletedDB } from "../../../API/toggleCompletedDB";
+import deleteTodoDB from "../../../API/deleteTodoDB";
+import toggleCompletedDB from "../../../API/toggleCompletedDB";
 import { todoAppDispatch } from "../../../hook/store";
 import s from "./TodoList.module.scss";
 

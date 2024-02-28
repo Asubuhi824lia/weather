@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { todoAppDispatch, todoAppSelector } from "../../../hook/store";
 import TodoItem, { Todo } from "./TodoItem";
-import { fetchTodos } from "../../../API/fetchTodos";
+import fetchTodos from "../../../API/fetchTodos";
 
 export default function TodoList(props: any) {
   const todos = todoAppSelector((state) => state.todos.todos);

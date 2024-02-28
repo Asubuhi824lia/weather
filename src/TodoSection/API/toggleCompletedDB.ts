@@ -3,7 +3,7 @@ import { toggleTodoCompleted } from "../store/todoSlice";
 import { apiProps } from "./apiProps";
 import { Todo } from "../pages/components/TodoList/TodoItem";
 
-export const toggleCompletedDB = createAsyncThunk(
+const toggleCompletedDB = createAsyncThunk(
   "todos/togglecompleted",
   async function ({ id }: apiProps, { rejectWithValue, dispatch, getState }) {
     try {
@@ -34,3 +34,5 @@ export const toggleCompletedDB = createAsyncThunk(
     }
   }
 );
+
+export default toggleCompletedDB;

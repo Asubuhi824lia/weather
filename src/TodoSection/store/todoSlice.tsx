@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AsyncStatus, fetchTodos } from "../API/fetchTodos";
-import { deleteTodoDB } from "../API/deleteTodoDB";
+import fetchTodos, { AsyncStatus } from "../API/fetchTodos";
+import deleteTodoDB from "../API/deleteTodoDB";
+import addNewTodoDB from "../API/addNewTodoDB";
+import toggleCompletedDB from "../API/toggleCompletedDB";
 import { Todo } from "../pages/components/TodoList/TodoItem";
 
 export const todoSlice = createSlice({
@@ -23,13 +25,7 @@ export const todoSlice = createSlice({
   },
   reducers: {
     addTodo: (state, action) => {
-      if (action.payload.title.trim().length) {
-        state.todos.push({
-          id: new Date().getTime(),
-          title: action.payload.title,
-          completed: false,
-        });
-      }
+      state.todos.push(action.payload);
     },
     delTodo: (state, action) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload.id);
@@ -54,6 +50,8 @@ export const todoSlice = createSlice({
       })
       .addCase(fetchTodos.rejected, setError);
     builder.addCase(deleteTodoDB.rejected, setError);
+    builder.addCase(toggleCompletedDB.rejected, setError);
+    builder.addCase(addNewTodoDB.rejected, setError);
   },
 });
 

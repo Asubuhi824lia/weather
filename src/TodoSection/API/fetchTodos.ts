@@ -6,7 +6,7 @@ export enum AsyncStatus {
   REJECTED = "failed",
 }
 
-export const fetchTodos = createAsyncThunk(
+const fetchTodos = createAsyncThunk(
   "todos/fetchTodos",
   async function (_, { rejectWithValue }) {
     try {
@@ -25,3 +25,5 @@ export const fetchTodos = createAsyncThunk(
     }
   }
 );
+
+export default fetchTodos;

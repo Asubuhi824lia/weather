@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { delTodo } from "../store/todoSlice";
 import { apiProps } from "./apiProps";
 
-export const deleteTodoDB = createAsyncThunk(
+const deleteTodoDB = createAsyncThunk(
   "todos/deleteTodo",
   async function ({ id }: apiProps, { rejectWithValue, dispatch }) {
     try {
@@ -24,3 +24,5 @@ export const deleteTodoDB = createAsyncThunk(
     }
   }
 );
+
+export default deleteTodoDB;
