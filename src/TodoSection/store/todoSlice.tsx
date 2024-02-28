@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AsyncStatus, fetchTodos } from "../API/fetchTodos";
-import { deleteTodo } from "../API/deleteTodo";
+import { deleteTodoDB } from "../API/deleteTodoDB";
 import { Todo } from "../pages/components/TodoList/TodoItem";
 
 export const todoSlice = createSlice({
@@ -34,7 +34,7 @@ export const todoSlice = createSlice({
     delTodo: (state, action) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload.id);
     },
-    toggleTodocompleted: (state, action) => {
+    toggleTodoCompleted: (state, action) => {
       const toggleTodo = state.todos.find(
         (todo) => todo.id === action.payload.id
       );
@@ -53,7 +53,7 @@ export const todoSlice = createSlice({
         state.todos = action.payload;
       })
       .addCase(fetchTodos.rejected, setError);
-    builder.addCase(deleteTodo.rejected, setError);
+    builder.addCase(deleteTodoDB.rejected, setError);
   },
 });
 
@@ -69,4 +69,4 @@ const setError = (state: TodoState, action: PayloadAction<any>) => {
 };
 
 export default todoSlice.reducer;
-export const { addTodo, delTodo, toggleTodocompleted } = todoSlice.actions;
+export const { addTodo, delTodo, toggleTodoCompleted } = todoSlice.actions;

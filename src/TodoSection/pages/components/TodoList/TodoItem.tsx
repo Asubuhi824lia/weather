@@ -1,4 +1,5 @@
-import { deleteTodo } from "../../../API/deleteTodo";
+import { deleteTodoDB } from "../../../API/deleteTodoDB";
+import { toggleCompletedDB } from "../../../API/toggleCompletedDB";
 import { todoAppDispatch } from "../../../hook/store";
 import s from "./TodoList.module.scss";
 
@@ -24,11 +25,11 @@ function TodoItem({ todo }: Props) {
           type="checkbox"
           className={s.completed}
           checked={completed}
-          onChange={() => {}}
+          onChange={() => dispatch(toggleCompletedDB({ id }))}
         />
         <span>{`${title}`}</span>
       </label>
-      <span className={s.delete} onClick={() => dispatch(deleteTodo({ id }))}>
+      <span className={s.delete} onClick={() => dispatch(deleteTodoDB({ id }))}>
         &times;
       </span>
     </li>
